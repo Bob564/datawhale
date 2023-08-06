@@ -122,6 +122,40 @@ pip config set global.index-url  https://pypi.org/simple
 pip install xx -i https://pypi.org/simple
 ```
 
+### 连github网速过慢
+
+表现为：Failed to connect to github.com port 443 after 21068 ms: Timed out
+
+解决方案一：设置代理，需要开启科学上网
+
+```bash
+#设置代理
+git config --global http.proxy http://127.0.0.1:7890 
+git config --global https.proxy http://127.0.0.1:7890
+```
+
+取消代理
+
+```bash
+#取消代理
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+```
+
+查看代理
+
+```bash
+# 查看代理
+git config --global --get http.proxy
+git config --global --get https.proxy
+```
+
+解决方案二：CDN加速（有可能会挂掉）
+
+```bash
+git config --global url."https://ghproxy.com/https://github.com".insteadOf "https://github.com" 
+```
+
 ###  pytorch学习资源
 
 [Deep Learning with PyTorch: A 60 Minute Blitz — PyTorch Tutorials 2.0.1+cu117 documentation](https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html)
