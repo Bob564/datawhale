@@ -150,7 +150,7 @@ git config --global --get http.proxy
 git config --global --get https.proxy
 ```
 
-解决方案二：CDN加速（有可能会挂掉）
+解决方案二：CDN加速（缺点：有可能会挂掉，push需要认证）
 
 ```bash
 git config --global url."https://ghproxy.com/https://github.com".insteadOf "https://github.com" 
